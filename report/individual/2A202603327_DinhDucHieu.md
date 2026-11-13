@@ -98,18 +98,18 @@ Loại lỗi dùng đúng một trong 7 mã: `id_switch`, `fragmentation`, `lost
 | Frame | Mã người | Loại lỗi | Mô tả một câu | Phát hiện ở lượt | Đã sửa? |
 |---:|---|---|---|---|---|
 | 141 | P5 | `lost` | Bé gái hiện lại giữa P3 và P4 nhưng track của P5 vẫn để `outside` từ frame 109 nên không có box. | 2 | Chưa, hết thời gian; cách sửa: tắt `outside` ở frame bé hiện lại, giữ cùng ID vì chỉ khuất khoảng 27 frame (< 60) |
-| | | | | | |
+| 0–27 | P1 | `flag` | P1 nhìn thấy rõ sau kính nhưng box bị bật `occluded` dù không có ai che. | __ | Có, tắt `occluded` ở đoạn 0–27 |
 | | | | | | |
 
 Tổng hợp số lỗi theo loại:
 
 | `id_switch` | `fragmentation` | `lost` | `merge` | `false_track` | `drift` | `flag` |
 |---:|---:|---:|---:|---:|---:|---:|
-| 0 | 0 | 1 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 0 | 0 | 1 |
 
 Lỗi nào chỉ lượt 2 (theo cảnh) mới thấy, lượt 1 (theo người) không thấy? Vì sao?
 
-Lỗi `lost` của P5 ở frame 141 chỉ thấy ở lượt 2.
+Lỗi `lost` của P5 ở frame 141 chỉ thấy ở lượt 2. Em phải xem kỹ cả cảnh mới phát hiện ra bé gái hiện lại.
 
 ## 5. File xuất và kết quả tự kiểm (CP4)
 
@@ -158,7 +158,7 @@ Dán phần tóm tắt in ra từ `src/check_submission.py`:
 
 1. Nếu được gán lại, bạn sẽ đặt keyframe khác ở đâu? Vì sao?
 
-   ...
+   Em sẽ bớt chỉnh box của P1 (người áo đen trong shop), vì người này ở xa và mờ sau kính nên em đã chỉnh gần như từng frame.
 
 2. Có chỗ nào bạn không chắc "cùng ID hay ID mới"? Bạn đã quyết định và ghi chú thế nào?
 
@@ -166,7 +166,7 @@ Dán phần tóm tắt in ra từ `src/check_submission.py`:
 
 3. Một lỗi ID trong job của bạn (nếu không còn sót, chọn lỗi đã sửa) có thể làm xe tự lái dự đoán sai chuyển động của người đó như thế nào? Lỗi đó ảnh hưởng MOTA hay IDF1 nhiều hơn?
 
-   ...
+   Nếu bé gái (P5) bị gán ID mới khi hiện lại, xe tự lái sẽ hiểu đó là một người mới.
 
 ## Bonus (nếu làm)
 
