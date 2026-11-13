@@ -99,7 +99,6 @@ Loại lỗi dùng đúng một trong 7 mã: `id_switch`, `fragmentation`, `lost
 |---:|---|---|---|---|---|
 | 141 | P5 | `lost` | Bé gái hiện lại giữa P3 và P4 nhưng track của P5 vẫn để `outside` từ frame 109 nên không có box. | 2 | Chưa, hết thời gian; cách sửa: tắt `outside` ở frame bé hiện lại, giữ cùng ID vì chỉ khuất khoảng 27 frame (< 60) |
 | 0–27 | P1 | `flag` | P1 nhìn thấy rõ sau kính nhưng box bị bật `occluded` dù không có ai che. | __ | Có, tắt `occluded` ở đoạn 0–27 |
-| | | | | | |
 
 Tổng hợp số lỗi theo loại:
 
