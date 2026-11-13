@@ -97,7 +97,7 @@ Loại lỗi dùng đúng một trong 7 mã: `id_switch`, `fragmentation`, `lost
 
 | Frame | Mã người | Loại lỗi | Mô tả một câu | Phát hiện ở lượt | Đã sửa? |
 |---:|---|---|---|---|---|
-| 141 | P5 | `lost` | Bé gái hiện lại giữa P3 và P4 nhưng track của P5 vẫn để `outside` từ frame 109 nên không có box. | __ | Chưa, hết thời gian; cách sửa: tắt `outside` ở frame bé hiện lại, giữ cùng ID vì chỉ khuất khoảng 27 frame (< 60) |
+| 141 | P5 | `lost` | Bé gái hiện lại giữa P3 và P4 nhưng track của P5 vẫn để `outside` từ frame 109 nên không có box. | 2 | Chưa, hết thời gian; cách sửa: tắt `outside` ở frame bé hiện lại, giữ cùng ID vì chỉ khuất khoảng 27 frame (< 60) |
 | | | | | | |
 | | | | | | |
 
@@ -105,11 +105,11 @@ Tổng hợp số lỗi theo loại:
 
 | `id_switch` | `fragmentation` | `lost` | `merge` | `false_track` | `drift` | `flag` |
 |---:|---:|---:|---:|---:|---:|---:|
-| | | | | | | |
+| 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 
 Lỗi nào chỉ lượt 2 (theo cảnh) mới thấy, lượt 1 (theo người) không thấy? Vì sao?
 
-...
+Lỗi `lost` của P5 ở frame 141 chỉ thấy ở lượt 2.
 
 ## 5. File xuất và kết quả tự kiểm (CP4)
 
